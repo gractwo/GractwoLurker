@@ -4,4 +4,5 @@ WORKDIR /app
 COPY ./ ./
 RUN npm update
 RUN npm install
+RUN npx prisma db push
 CMD ["node", "index.js"]

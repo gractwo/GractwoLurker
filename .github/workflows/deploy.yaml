@@ -18,4 +18,4 @@ jobs:
         run: |
           docker stop ${{ github.event.repository.name }} || true
           docker rm ${{ github.event.repository.name }} || true
-          docker run -d --restart always -e "TOKEN=${{ secrets.TOKEN }}" --name ${{ github.event.repository.name }} ${{ github.repository }}
+          docker run -d --network lurker --restart always -e "TOKEN=${{ secrets.TOKEN }}" -e "DATABASE_URL=${{ secrets.DATABASE_URL }}" --name ${{ github.event.repository.name }} ${{ github.repository }}
